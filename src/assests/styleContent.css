@@ -1,0 +1,72 @@
+.Content{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+.popularContent{
+    display: flex;
+    position: relative;
+    justify-content:center;
+    width: 100%;
+    padding:4.5rem 0 1.5rem 0 ;
+    flex-wrap: wrap;
+    background: linear-gradient(
+        87deg
+        ,#f5365c 0,#f56036 100%)!important;
+}
+.colContent{
+    padding: 0 10px;
+    justify-content: center;
+    max-width: 300px;
+}
+.carousel{
+    margin-top: 2rem;
+    max-width: 800px;
+}
+div.carousel-item{
+    transition: all 0.7s ease;
+}
+.cardTitleIcon{
+    height: 48px;
+    width: 48px;
+    color:green;
+}
+.colContent:nth-child(4) .cardTitleIcon{
+    color:gold;
+}
+.cardPopular{
+    padding: 1rem 1.5rem !important;
+    width: 100% !important;
+}
+.cardPopular .card-title{
+    font-size: 1rem;
+    color: #8898aa;
+}
+.cardPopular .card-body{
+    padding: 0;
+}
+.cardPopularCol{
+    display: flex;
+    justify-content: flex-end;
+}
+.cardPopularTitleRow{
+    margin-bottom: 12px;
+}
+.cardPopularSpan{
+    font-weight: bolder;
+    font-size: 1.25rem;
+}
+span.text-success{
+    color: #2dce89 !important;
+}
+span.text-danger{
+    color: #f5365c!important;
+}
+.text-danger, .text-success,.text-warning{
+    font-family: Open Sans,sans-serif;
+    font-size: .875rem;
+    font-weight: 300;
+}
+.text-danger svg,.text-success svg,.text-warning svg{
+    margin-right: .5rem;
+}

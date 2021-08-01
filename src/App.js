@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import {useContext} from "react"
+import Header from "./Components/Header"
+import Content from "./Components/Content"
+import Footer from "./Components/Footer"
+
+import "./assests/styleHeader.css"
+import "./assests/styleContent.css"
+import "./assests/styleFooter.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+import {theme} from "./Control"
 
 function App() {
+  const [darkMode]= useContext(theme);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkMode ? "" : "dark"}>
+      <Header/>
+      <Content/>
+      <Footer/>
     </div>
   );
 }

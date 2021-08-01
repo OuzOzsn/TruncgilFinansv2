@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+body{
+    background-color: #F3F5FB;
+    
+}
+.dark{
+    background-color: gray;
+}
+.Header{
+    display: flex;
+    /* background: linear-gradient( 19deg,#2C7744 8%,#2F0743 97%); */
+    background-color: white;
+    max-height: 113px;
+    font-family: 'Dosis', sans-serif;
+    padding: 0 20px ;
+}
+.Header a{
+    text-decoration: none;
+}
+.headerLogo{
+    width: 190px;
+    height: 115px;
+}
+.headerLinksUl{
+    position: relative;
+    height: 115px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+.headerLinksUl li{
+    display: flex;
+    width: 140px;
+    height: 100%;
+    font-weight: 600;
+    transition: all 0.7s ease;
+}
+.headerLinksUl li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s ease;
+    /* color: #c2c2c2; */
+    color:#8596a7;
+    font-weight:lighter;
+    width: 100%;
+    height: 100%;
+}
+.headerLinksUl li:nth-child(3) a:hover{
+    color: #E84F28;
+}
+.headerLinksUl li:nth-child(4){
+    width: 70px;
+}
+.darkModeBtn{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Dosis', 'sans-serif';
+    transition: all 0.6s ease;
+    color:#8596a7;
+}
+.darkModeBtn ul{
+    margin: 0;
+}
+.darkModeBtn ul li{
+    display: none;
+}
+.darkModeBtn:focus ul li{
+    position: absolute;
+    display: flex;
+    background-color: gray;
+    justify-content: center;
+    cursor:default;
+    width: 100%;
+    height: 60px;
+}
+
+.headerLinksUl a:hover,.Header .darkModeBtn:hover{
+    color: #52c234;
+}
+
+.headerDarkOption{
+    display: flex;
+    padding:0 4px 1px 4px;
+    align-items: center;
+    width: 50px;
+    height: 25px;
+    background-color: white;
+    border: 2px #334d50 solid;
+    border-radius: 5rem;
+    align-self: center;
+    margin-bottom: 6px;
+}
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(20px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+.optionBall-left{
+    height: 17px;
+    width: 16px;
+    border-radius: 5rem;
+    background-color: gray;
+    animation: 1s ease 0s 1 slideInFromLeft;
+}
