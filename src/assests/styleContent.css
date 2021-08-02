@@ -19,6 +19,42 @@
     justify-content: center;
     max-width: 300px;
 }
+.containerMarkets{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.marketsHeader{
+    display: flex;
+    justify-content: center;
+}
+.tablesRow{
+    width: 70%;
+}
+.tablesRow table{
+    border: transparent;
+}
+.tablesRow table thead{
+    color: #9b9b9b;
+    font-size: 14px;
+}
+.tablesRow table tbody{
+    font-weight: bold;
+}
+.tableHead{
+    display: flex;
+    width: fit-content;
+    font-size: 14px;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.tableMarketName{
+    color: #315eb8;
+}
+.tableHead:hover{
+    color: #f56036;
+}
 .carousel{
     margin-top: 2rem;
     max-width: 800px;
