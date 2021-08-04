@@ -42,7 +42,7 @@ const ContentTableCurrency = () => {
     <tbody>
     {exchange.map((data) => {
           return (
-            <tr>
+            <tr key={data.Name}>
               <td className="tableMarketName">{data.Name}</td>
               <td>{data.Selling}</td>
               <td className={

@@ -1,6 +1,8 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect,useEffect } from "react";
 import ContentTableCurrency from "./ContentElements/ContentTableCurrency";
 import ContentTableGold from "./ContentElements/ContentTableGold";
+import  ContentTop5Loser  from "./ContentElements/ContentTop5Loser";
+import ContentTop5Win from "./ContentElements/ContentTop5Win";
 
 import { Card, Col, Row, Carousel, Container } from "react-bootstrap";
 import {
@@ -45,7 +47,10 @@ const Content = () => {
   };
   useLayoutEffect(() => {
     popularRequest();
+    
   }, []);
+  
+
   return (
     <section className="Content">
       <div className="popularContent">
@@ -109,7 +114,7 @@ const Content = () => {
             </Col>
           );
         })}
-        <Carousel>
+        <Carousel className="mb-5">
           <Carousel.Item>
             <img className="d-block w-100" src={logo} alt="First slide" />
             <Carousel.Caption>
@@ -137,25 +142,42 @@ const Content = () => {
           </Carousel.Item>
         </Carousel>
       </div>
-      <Container lg="12" className="containerMarkets mt-5">
+      <Container lg="12" className="containerMarkets mt-5 mb-5">
         <Col xl={12} md={12} sm={12} xs={12} className="marketsHeader">
           <h3>Piyasa Durumu</h3>
         </Col>
         <Row className="tablesRow mt-5">
           <Col>
+
+
             <h3 className="tableHead">
               Döviz Kurları{" "}
               <RiArrowDropRightLine style={{ fontSize: "17px" }} />
             </h3>
             <ContentTableCurrency />
+
+
+            <h3 className="tableHead mt-5">
+              En Çok Değer Kaybedenler{" "}
+              <RiArrowDropRightLine style={{ fontSize: "17px" }} />
+            </h3>
+            <ContentTop5Loser/>
           </Col>
+
           <Col>
           <h3 className="tableHead">
               Altın Kurları{" "}
               <RiArrowDropRightLine style={{ fontSize: "17px" }} />
             </h3>
             <ContentTableGold />
+
+            <h3 className="tableHead mt-5">
+              En Çok Değer Kazananlar{" "}
+              <RiArrowDropRightLine style={{ fontSize: "17px" }} />
+            </h3>
+            <ContentTop5Win/>
           </Col>
+          
         </Row>
       </Container>
     </section>
