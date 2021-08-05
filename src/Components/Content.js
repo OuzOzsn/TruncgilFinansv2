@@ -1,19 +1,19 @@
-import React, { useState, useLayoutEffect,useEffect } from "react";
-import ContentTableCurrency from "./ContentElements/ContentTableCurrency";
-import ContentTableGold from "./ContentElements/ContentTableGold";
-import  ContentTop5Loser  from "./ContentElements/ContentTop5Loser";
-import ContentTop5Win from "./ContentElements/ContentTop5Win";
+import React, { useState, useLayoutEffect } from "react";
+
+import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
 
 import { Card, Col, Row, Carousel, Container } from "react-bootstrap";
 import {
   RiMoneyDollarCircleFill,
   RiMoneyEuroCircleFill,
-  RiMoneyPoundCircleFill,
-  RiArrowDropRightLine,
+  RiMoneyPoundCircleFill
 } from "react-icons/ri";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { AiFillGolden, AiOutlineLine } from "react-icons/ai";
 import logo from "../assests/pics/sat.jpg";
+
+import ContentMarkets from "./ContentMarkets/ContentMarkets";
+import ContentAllCurrency from "./ContentMarkets/ContentAllCurrency";
 
 const Content = () => {
   const [exchange, setExchange] = useState([]);
@@ -52,6 +52,7 @@ const Content = () => {
   
 
   return (
+    <Router>
     <section className="Content">
       <div className="popularContent">
         {exchange.map((data) => {
@@ -142,45 +143,14 @@ const Content = () => {
           </Carousel.Item>
         </Carousel>
       </div>
-      <Container lg="12" className="containerMarkets mt-5 mb-5">
-        <Col xl={12} md={12} sm={12} xs={12} className="marketsHeader">
-          <h3>Piyasa Durumu</h3>
-        </Col>
-        <Row className="tablesRow mt-5">
-          <Col>
-
-
-            <h3 className="tableHead">
-              Döviz Kurları{" "}
-              <RiArrowDropRightLine style={{ fontSize: "17px" }} />
-            </h3>
-            <ContentTableCurrency />
-
-
-            <h3 className="tableHead mt-5">
-              En Çok Değer Kaybedenler{" "}
-              <RiArrowDropRightLine style={{ fontSize: "17px" }} />
-            </h3>
-            <ContentTop5Loser/>
-          </Col>
-
-          <Col>
-          <h3 className="tableHead">
-              Altın Kurları{" "}
-              <RiArrowDropRightLine style={{ fontSize: "17px" }} />
-            </h3>
-            <ContentTableGold />
-
-            <h3 className="tableHead mt-5">
-              En Çok Değer Kazananlar{" "}
-              <RiArrowDropRightLine style={{ fontSize: "17px" }} />
-            </h3>
-            <ContentTop5Win/>
-          </Col>
-          
-        </Row>
-      </Container>
+      <Switch>
+      <Route path="/doviz" component={ContentAllCurrency}></Route>
+        <Route path="/" exact component={ContentMarkets} />
+        
+      </Switch>
+        
     </section>
+    </Router>
   );
 };
 

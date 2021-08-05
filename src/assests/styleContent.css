@@ -48,6 +48,10 @@
     cursor: pointer;
     transition: 0.3s ease;
 }
+.linkTables{
+    text-decoration: none;
+    color: #212529;
+}
 .tableMarketName{
     color: #315eb8;
 }
