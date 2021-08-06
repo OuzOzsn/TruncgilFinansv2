@@ -14,6 +14,7 @@ import logo from "../assests/pics/sat.jpg";
 
 import ContentMarkets from "./ContentMarkets/ContentMarkets";
 import ContentAllCurrency from "./ContentMarkets/ContentAllCurrency";
+import ContentAllGold from "./ContentMarkets/ContentAllGold";
 
 const Content = () => {
   const [exchange, setExchange] = useState([]);
@@ -144,9 +145,9 @@ const Content = () => {
         </Carousel>
       </div>
       <Switch>
-      <Route path="/doviz" component={ContentAllCurrency}></Route>
+        <Route path="/altin" component={ContentAllGold}/>
+        <Route path="/doviz" component={ContentAllCurrency}/>
         <Route path="/" exact component={ContentMarkets} />
-        
       </Switch>
         
     </section>

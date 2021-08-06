@@ -49,20 +49,31 @@ export const ContentTop5Win = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {exchange.slice(0).reverse().map((data) => {
-                      return (
-                        <tr key={data.Name}>
-                          <td className="tableMarketName">{data.Name}</td>
-                          <td>{data.Selling}</td>
-                          <td className={
-                                      data.Change === "%0,00" || data.Change === "%-0,00"
-                                        ? "text-warning"
-                                        : data.Change.includes("-")
-                                        ? "text-danger"
-                                        : "text-success"
-                                    }>%{data.Change}</td>
-                        </tr>
-                      );
+                    {
+                    exchange.slice(0).reverse().map((data) => {
+                      if(!data.Change.includes("-")){
+                        return (
+                          <tr key={data.Name}>
+                            <td className="tableMarketName">{data.Name}</td>
+                            <td>{data.Selling}</td>
+                            <td className={
+                                        data.Change === "%0,00" || data.Change === "%-0,00"
+                                          ? "text-warning"
+                                          : data.Change.includes("-")
+                                          ? "text-danger"
+                                          : "text-success"
+                                      }>%{data.Change}</td>
+                          </tr>
+                        );
+                      }
+                      else{
+                        return (
+                          <tr key={data.Name}>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                          </tr>);
+                      }
                     })}
                   </tbody>
                 </Table>
