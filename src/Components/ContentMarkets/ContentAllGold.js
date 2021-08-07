@@ -42,7 +42,7 @@ const ContentAllCurrency = () => {
                 <th>Değişim</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="allGold">
               {exchange.map((data) => {
                   if(data.Buying===undefined){
                     return "";
@@ -51,8 +51,8 @@ const ContentAllCurrency = () => {
                       return (
                   <tr key={data.Name}>
                     <td className="tableMarketName">{data.Name}</td>
-                    <td>{data.Buying}</td>
-                    <td>{data.Selling}</td>
+                    <td className="tableTexts">{data.Buying}</td>
+                    <td className="tableTexts">{data.Selling}</td>
                     <td
                       className={
                         data.Change === "%0,00" || data.Change === "%-0,00"

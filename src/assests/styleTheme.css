@@ -1,0 +1,36 @@
+.light-mode{
+    background-color: #F3F5FB;
+    transition: all 0.6s ease;
+
+}
+.light-mode .darkModeBtn{
+    background: #F3F5FB;
+}
+.dark-mode{
+    background-color: #242526;
+    transition: all 0.6s ease;
+
+}
+.dark-mode .darkModeBtn{
+    background-color: #242526;
+}
+.dark-mode .headerLogo{
+    filter:brightness(1.67);
+}
+
+
+
+
+
+
+
+.dark-mode .popularContent{
+    background: #1A1A1A ;
+}
+.dark-mode .card{
+    background: #2E2E2E;
+    color:white;
+}
+.dark-mode .tableTexts{
+    color: white;
+}

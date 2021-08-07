@@ -16,7 +16,7 @@ const ContentMarkets = () => {
           <h3>Piyasa Durumu</h3>
         </Col>
         <Row className="tablesRow mt-5">
-          <Col>
+          <Col xl={6} md={12} sm={12} xs={12}>
 
             <Link to="/doviz" className="linkTables">
             <h3 className="tableHead" >
@@ -25,15 +25,13 @@ const ContentMarkets = () => {
             </h3>
             </Link>
             <ContentTableCurrency />
-
-            
             <h3 className="tableHead mt-5">
               En Çok Değer Kaybedenler
             </h3>
             <ContentTop5Loser/>
           </Col>
 
-          <Col>
+          <Col xl={6} md={12} sm={12} xs={12}>
           <Link to="/altin" className="linkTables">
           <h3 className="tableHead" >
               Altın Kurları{" "}

@@ -44,7 +44,7 @@ const ContentTableCurrency = () => {
           return (
             <tr key={data.Name}>
               <td className="tableMarketName">{data.Name}</td>
-              <td>{data.Selling}</td>
+              <td className="tableTexts">{data.Selling}</td>
               <td className={
                           data.Change === "%0,00" || data.Change === "%-0,00"
                             ? "text-warning"

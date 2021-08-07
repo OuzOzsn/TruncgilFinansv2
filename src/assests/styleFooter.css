@@ -21,6 +21,7 @@
 }
 .footerContact{
     font-size: 17px;
+    font-family: 'Open Sans';
 }
 .footerContact #dropdown-basic{
     background:none;
@@ -31,6 +32,10 @@
 }
 .footerHelpSpan{
     font-size: 19px;
-    font-weight: bold;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+.footerContact li{
+    font-weight: 600;
     margin-bottom: 10px;
 }

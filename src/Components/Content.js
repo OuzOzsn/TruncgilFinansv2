@@ -10,7 +10,10 @@ import {
 } from "react-icons/ri";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { AiFillGolden, AiOutlineLine } from "react-icons/ai";
-import logo from "../assests/pics/sat.jpg";
+
+import logo from "../assests/pics/bitcoin.jpg";
+import logo1 from "../assests/pics/merkez-bankasi.jpg";
+import logo2 from "../assests/pics/altin.jpg";
 
 import ContentMarkets from "./ContentMarkets/ContentMarkets";
 import ContentAllCurrency from "./ContentMarkets/ContentAllCurrency";
@@ -61,8 +64,8 @@ const Content = () => {
             <Col
               xl={3}
               md={3}
-              sm={3}
-              xs={3}
+              sm={6}
+              xs={6}
               className="colContent"
               key={data.Name}
             >
@@ -75,7 +78,7 @@ const Content = () => {
                     <span className="cardPopularSpan">{data.Selling}</span>
                   </Col>
                   <Col xl={4} md={4} sm={4} xs={4} className="cardPopularCol">
-                    <span>
+                    <span className="popularIcon">
                       {data.Name === "USD" ? (
                         <RiMoneyDollarCircleFill className="cardTitleIcon" />
                       ) : data.Name === "EUR" ? (
@@ -116,31 +119,35 @@ const Content = () => {
             </Col>
           );
         })}
-        <Carousel className="mb-5">
+        <Carousel className="mb-5" >
           <Carousel.Item>
-            <img className="d-block w-100" src={logo} alt="First slide" />
+            <img className="contentNews d-block w-100" src={logo} alt="First slide" />
             <Carousel.Caption>
-              <h3>SAT Komandoları</h3>
-              <p>Haberin tam hali için tıklayın.</p>
+              <h3>Bitcoin Tırmanıyor mu?</h3>
+              <p>Haberin tam hali için tıklayın...</p>
             </Carousel.Caption>
+            <div className="shadow"/>
           </Carousel.Item>
+          
           <Carousel.Item>
-            <img className="d-block w-100" src={logo} alt="Second slide" />
+            <img className="contentNews d-block w-100" src={logo1} alt="Second slide" />
 
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>Merkez Bankası Faizi</h3>
+              <p>Merkez bankası faizi düşürecek mi...</p>
             </Carousel.Caption>
+            <div className="shadow"/>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="d-block w-100" src={logo} alt="Third slide" />
+            <img className="contentNews d-block w-100" src={logo2} alt="Third slide" />
 
             <Carousel.Caption>
-              <h3>Third slide label</h3>
+              <h3>Altın</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Altının kilogramı yükselmeye devam ediyor...
               </p>
             </Carousel.Caption>
+            <div className="shadow"/>
           </Carousel.Item>
         </Carousel>
       </div>
