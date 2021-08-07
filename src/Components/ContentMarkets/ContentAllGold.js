@@ -16,7 +16,6 @@ const ContentAllCurrency = () => {
             myExchangeResult.push(response[g]);
           }
         });
-        console.log(myExchangeResult);
         setExchange(myExchangeResult);
       });
   };
@@ -45,7 +44,7 @@ const ContentAllCurrency = () => {
             <tbody className="allGold">
               {exchange.map((data) => {
                   if(data.Buying===undefined){
-                    return "";
+                    return undefined;
                   }
                   else{
                       return (
@@ -61,9 +60,7 @@ const ContentAllCurrency = () => {
                           ? "text-danger"
                           : "text-success"
                       }
-                    >
-                      {data.Change}
-                    </td>
+                    >{data.Change}</td>
                   </tr>
                 );
                   }

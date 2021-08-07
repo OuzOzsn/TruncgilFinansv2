@@ -34,7 +34,7 @@ const ContentMarkets = () => {
           <Col xl={6} md={12} sm={12} xs={12}>
           <Link to="/altin" className="linkTables">
           <h3 className="tableHead" >
-              Altın Kurları{" "}
+              Altın Fiyatları{" "}
               <RiArrowDropRightLine style={{ fontSize: "17px" }} />
             </h3>
             </Link>

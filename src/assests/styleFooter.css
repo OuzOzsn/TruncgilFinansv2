@@ -22,6 +22,10 @@
 .footerContact{
     font-size: 17px;
     font-family: 'Open Sans';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
 }
 .footerContact #dropdown-basic{
     background:none;
@@ -38,4 +42,20 @@
 .footerContact li{
     font-weight: 600;
     margin-bottom: 10px;
+}
+@media screen and (max-width:550px) {
+    .footerTruncgil{
+        font-size: small;
+    padding: 0;
+    }
+    .footerContact a{
+        font-size: small;
+    }
+}
+@media screen and (max-width:389px) {
+    .footerTruncgil{
+        display: flex;
+        font-size: x-small;
+        flex-direction: column;
+    }
 }

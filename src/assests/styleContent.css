@@ -138,6 +138,9 @@ span.text-danger{
     width: 100%;
 }
 @media screen and (max-width:896px) {
+    .Content{
+        padding-top: 113px;
+    }
     .cardPopular .card-title{
         font-size: 0.8rem;
     }
@@ -162,7 +165,6 @@ span.text-danger{
     .tablesRow{
         display: inline-table !important;
         font-size: small;
-        font-weight: 100 !important;
     }
 }
 @media screen and (max-width:370px) {
