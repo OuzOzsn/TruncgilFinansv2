@@ -123,7 +123,7 @@ const Content = () => {
           <Carousel.Item>
             <img className="contentNews d-block w-100" src={logo} alt="First slide" />
             <Carousel.Caption>
-              <h3>Bitcoin Tırmanıyor mu?</h3>
+              <h3>Bitcoin Yeniden Yükselişe Geçti</h3>
               <p>Haberin tam hali için tıklayın...</p>
             </Carousel.Caption>
             <div className="shadow"/>
