@@ -119,6 +119,7 @@ const Content = () => {
             </Col>
           );
         })}
+        <Col className="carouselCol" xl={12} md={12} sm={12} xs={12}>
         <Carousel className="mb-5" >
           <Carousel.Item>
             <img className="contentNews d-block w-100" src={logo} alt="First slide" />
@@ -150,6 +151,7 @@ const Content = () => {
             <div className="shadow"/>
           </Carousel.Item>
         </Carousel>
+        </Col>
       </div>
       <Switch>
         <Route path="/altin" component={ContentAllGold}/>

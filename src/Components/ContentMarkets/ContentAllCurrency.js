@@ -23,6 +23,7 @@ const ContentAllCurrency = () => {
     currencyRequest();
   }, []);
 
+
   return (
     <Container lg="12" className="containerMarkets mt-5 mb-5">
       <Col xl={12} md={12} sm={12} xs={12} className="marketsHeader">
@@ -43,6 +44,12 @@ const ContentAllCurrency = () => {
             </thead>
             <tbody>
               {exchange.map((data) => {
+                if(data.Change===undefined){
+                  return undefined;
+                }
+                else{
+
+                
                 return (
                   <tr key={data.Name}>
                     <td className="tableMarketName">{data.Name}</td>
@@ -61,6 +68,7 @@ const ContentAllCurrency = () => {
                     </td>
                   </tr>
                 );
+              }
               })}
             </tbody>
           </Table>

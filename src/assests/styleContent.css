@@ -119,7 +119,11 @@ span.text-danger{
     margin-right: .5rem;
 }
 
-
+.carouselCol{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .carousel-caption{
     z-index: 1;
 }
