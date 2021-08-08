@@ -3,37 +3,37 @@ import { Table } from "react-bootstrap";
 
 export const ContentTop5Loser = () => {
   const [exchange, setExchange] = useState([]);
-  let top5 = [];
-  let top5read = [];
-  const allRequest = () => {
-    fetch("https://finans.truncgil.com/v3/today.json")
-      .then((response) => response.json())
-      .then((response) => {
-        delete response.Update_Date;
-        let myExchangeResult = [];
-        Object.keys(response).forEach((r) => {
-          response[r].Name = r;
-          myExchangeResult.push(response[r]);
-        });
-        myExchangeResult.forEach((a) => {
-          if (a.Change !== undefined) {
-            let yuzde1 = a.Change;
-            a.Change = yuzde1.replace("%", "");
-            a.Change = a.Change.replace(",", ".");
-            top5.push(a);
-          }
-        });
-        top5.sort((a, b) => {
-          return parseFloat(b.Change) - parseFloat(a.Change);
-        });
-        top5.slice(-5).forEach((data) => {
-          top5read.push(data);
-        });
-        setExchange(top5read);
-      });
-  };
 
   useLayoutEffect(() => {
+    let top5 = [];
+    let top5read = [];
+    const allRequest = () => {
+      fetch("https://finans.truncgil.com/v3/today.json")
+        .then((response) => response.json())
+        .then((response) => {
+          delete response.Update_Date;
+          let myExchangeResult = [];
+          Object.keys(response).forEach((r) => {
+            response[r].Name = r;
+            myExchangeResult.push(response[r]);
+          });
+          myExchangeResult.forEach((a) => {
+            if (a.Change !== undefined) {
+              let yuzde1 = a.Change;
+              a.Change = yuzde1.replace("%", "");
+              a.Change = a.Change.replace(",", ".");
+              top5.push(a);
+            }
+          });
+          top5.sort((a, b) => {
+            return parseFloat(b.Change) - parseFloat(a.Change);
+          });
+          top5.slice(-5).forEach((data) => {
+            top5read.push(data);
+          });
+          setExchange(top5read);
+        });
+    };
     allRequest();
   }, []);
 
@@ -71,11 +71,12 @@ export const ContentTop5Loser = () => {
               );
             } else {
               return (
-              <tr key={data.Name}>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-              </tr>);
+                <tr key={data.Name}>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+              );
             }
           })}
       </tbody>

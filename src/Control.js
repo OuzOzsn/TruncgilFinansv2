@@ -2,12 +2,12 @@ import React,{useLayoutEffect, useState} from 'react'
 
 export const theme = React.createContext(false);
 const Control=({children})=> {
-    /*cookie yi oku içinde değer yoksa stateden al*/
     let decodedCookie = decodeURIComponent(document.cookie);
-    let splitCookie = decodedCookie.split("DarkModeEnabled=");
-    const [darkMode,setDarkMode] = useState();
+    const [darkMode,setDarkMode] = useState(false);
+    
     
     useLayoutEffect(() => {
+        let splitCookie = decodedCookie.split("DarkModeEnabled=");
         const light = ()=>{
             return setDarkMode(false);
         }
@@ -21,7 +21,8 @@ const Control=({children})=> {
             light();
         }
         document.cookie="DarkModeEnabled="+darkMode;
-    }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []) 
     return (
         <theme.Provider value={[darkMode,setDarkMode]}>
             {children}

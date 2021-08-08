@@ -2,7 +2,7 @@ import React, { useState, useLayoutEffect } from "react";
 
 import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
 
-import { Card, Col, Row, Carousel, Container } from "react-bootstrap";
+import { Card, Col, Row, Carousel } from "react-bootstrap";
 import {
   RiMoneyDollarCircleFill,
   RiMoneyEuroCircleFill,
@@ -21,18 +21,18 @@ import ContentAllGold from "./ContentMarkets/ContentAllGold";
 
 const Content = () => {
   const [exchange, setExchange] = useState([]);
-  const [jsonDate, setJsonDate] = useState(Date.now());
+  // const [jsonDate, setJsonDate] = useState(Date.now());
 
-  const date = new Date(jsonDate);
-  const date2 = new Date();
-  const timeMS = Math.floor(date2 - date);
-  const timeMN = Math.floor(timeMS / 1000 / 60);
+  // const date = new Date(jsonDate);
+  // const date2 = new Date();
+  // const timeMS = Math.floor(date2 - date);
+  // const timeMN = Math.floor(timeMS / 1000 / 60);
 
   const popularRequest = () => {
     fetch("https://finans.truncgil.com/v3/today.json")
       .then((response) => response.json())
       .then((response) => {
-        setJsonDate(response.Update_Date);
+        // setJsonDate(response.Update_Date);
         delete response.Update_Date;
         let myExchangeResult = [];
         Object.keys(response).forEach((r) => {
