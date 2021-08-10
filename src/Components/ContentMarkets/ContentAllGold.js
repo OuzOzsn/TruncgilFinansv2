@@ -24,10 +24,7 @@ const ContentAllCurrency = () => {
   }, []);
 
   return (
-    <Container lg="12" className="containerMarkets mt-5 mb-5">
-      <Col xl={12} md={12} sm={12} xs={12} className="marketsHeader">
-        <h3>Piyasa Durumu</h3>
-      </Col>
+    <Container lg="12" className="containerMarkets mb-5">
       <Row className="tablesRow mt-5">
         <Col>
           <h3 className="tableHead">Altın Fiyatları </h3>

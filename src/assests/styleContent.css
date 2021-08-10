@@ -31,9 +31,20 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+.dark-mode .marketsHeader{
+    color: white;
+}
 .marketsHeader{
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#example-custom-modal-styling-title{
+    font-size: 17px;
+}
+.contentConverter{
+    width: 91px;
 }
 .tablesRow{
     width: 70%;
