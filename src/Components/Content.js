@@ -203,7 +203,7 @@ const Content = () => {
           <Modal.Body>
             <Row>
               <Col xl={8} md={8} sm={8} xs={8}>
-                <Form.Control id="convertText" type="text" placeholder="Değer Girin" onChange={()=>{
+                <Form.Control id="convertText" type="text" placeholder="Değer Girin" onKeyUp={()=>{
                   let currencyName = document.getElementById("convertSelect").value;
                   let currency = document.getElementById("convertText").value;
                   let a ;
@@ -214,13 +214,18 @@ const Content = () => {
                       a=a.replace(",",".");
                       currency =  parseFloat(currency) * parseFloat(a) ;
                       currency=currency.toFixed(2);
-                      console.log(currency.length);
-                      if(!isNaN(currency)){
-                        document.getElementById("convertResult").value=currency + " ₺";
-                        
+                      console.log(currency.length-3);
+                      if(currency.search("e")===-1){
+                        if(!isNaN(currency)){
+                          document.getElementById("convertResult").value=currency + " ₺";
+                          
+                        }
+                        else{
+                          document.getElementById("convertResult").value="Lütfen geçerli değer giriniz...";
+                        }
                       }
                       else{
-                        document.getElementById("convertResult").value="Lütfen geçerli değer giriniz...";
+                        document.getElementById("convertResult").value="Çok Yüksek Değer Girdiniz...";
                       }
                       
                     }
