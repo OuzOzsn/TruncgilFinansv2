@@ -2,7 +2,7 @@ import React, { useState, useLayoutEffect } from "react";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { Card, Col, Row, Carousel, Button, Modal, Form } from "react-bootstrap";
+import { Card, Col, Row, Carousel, Button, Modal, Form,InputGroup } from "react-bootstrap";
 import {
   RiMoneyDollarCircleFill,
   RiMoneyEuroCircleFill,
@@ -24,7 +24,7 @@ import { converterRequest } from "./ContentMarkets/MarketsFunctions";
 const Content = () => {
   
   const [exchange, setExchange] = useState([]);
-  const [converter, setConverter] = useState([]);
+  const [converter, setConverter] = useState([]);  /* Sayfadaki döviz dönüştürücünün datası */
   const [show, setShow] = useState(false);
   // const [jsonDate, setJsonDate] = useState(Date.now());
 
@@ -202,39 +202,108 @@ const Content = () => {
           </Modal.Header>
           <Modal.Body>
             <Row>
+              {/* dönüştürücünün üstteki textBox ı */}
               <Col xl={8} md={8} sm={8} xs={8}>
-                <Form.Control id="convertText" type="text" placeholder="Değer Girin" onKeyUp={()=>{
+                <Form.Control id="convertText" type="text" placeholder="Miktar Döviz..." onKeyUp={()=>{
+                  let selector = document.getElementById("convertSelect").selectedIndex;
                   let currencyName = document.getElementById("convertSelect").value;
                   let currency = document.getElementById("convertText").value;
                   let a ;
-                  converter.forEach((data)=>{
-                    if(data.Name===currencyName)
-                    {
-                      a = data.Selling;
-                      a=a.replace(",",".");
-                      currency =  parseFloat(currency) * parseFloat(a) ;
-                      currency=currency.toFixed(4);
-                      if(currency.search("e")===-1){
-                        if(!isNaN(currency)){
-                          document.getElementById("convertResult").value=currency + " ₺";
-                          
+                  if(currency.length <=22){
+                  if(!isNaN(currency)){
+                  if(selector !== 0){
+                    converter.forEach((data)=>{
+                      if(data.Name===currencyName)
+                      {
+                        a = data.Selling;
+                        a=a.replace(",",".");
+                        currency =  parseFloat(currency) * parseFloat(a) ;
+                        currency=currency.toFixed(4);
+                        
+                        if(currency.search("e")===-1){
+                          if(!isNaN(currency)){
+                            document.getElementById("convertResult").value=currency;
+                            
+                          }
+                          else{
+                            document.getElementById("convertResult").placeholder="Lütfen geçerli değer giriniz...";
+                          }
                         }
+                        
                         else{
-                          document.getElementById("convertResult").value="Lütfen geçerli değer giriniz...";
+                          document.getElementById("convertResult").placeholder="Çok Yüksek Değer Girdiniz...";
                         }
+                        
                       }
-                      else{
-                        document.getElementById("convertResult").value="Çok Yüksek Değer Girdiniz...";
-                      }
-                      
-                    }
-                  })
+                    })
+                  }
+                  else{
+                    document.getElementById("convertText").value= "";
+                    document.getElementById("convertResult").value= "";
+                    document.getElementById("convertResult").placeholder="Lütfen bir döviz seçiniz...";
+                  }
+                }
+                else{
+                  document.getElementById("convertText").value= "";
+                    document.getElementById("convertResult").value= "";
+                }
+              }
+              else{
+                document.getElementById("convertResult").value= "Çok Yüksek Değer Girdiniz...";
+              }
+                  
                     
                   
                 }} />
               </Col>
+              {/* dönüştürücünün comboBox ı */}
               <Col xl={4} md={4} sm={4} xs={4}>
-                <Form.Select id="convertSelect">
+                <Form.Select id="convertSelect" onChange={()=>{
+                  let selector = document.getElementById("convertSelect").selectedIndex;
+                  let currency = document.getElementById("convertText").value;
+                  let currencyName = document.getElementById("convertSelect").value;
+                  let a;
+                  if(!isNaN(currency)){
+                    
+                  if(selector ===0){
+                    document.getElementById("convertText").value= "";
+                    document.getElementById("convertResult").value= "";
+                    document.getElementById("convertResult").placeholder="Lütfen bir döviz seçiniz...";
+                  }
+                  else{
+                    converter.forEach((data)=>{
+                      if(data.Name===currencyName)
+                      {
+                        a = data.Selling;
+                        a=a.replace(",",".");
+                        if(typeof currency!=='string'){
+                          document.getElementById("convertText").value=parseFloat(currency);
+                        }
+                        currency =  parseFloat(currency) * parseFloat(a) ;
+                        currency=currency.toFixed(4);
+                        if(currency.search("e")===-1){
+                          if(!isNaN(currency)){
+                            document.getElementById("convertResult").value=currency;
+                            
+                          }
+                          else{
+                            document.getElementById("convertResult").placeholder="Lütfen geçerli değer giriniz...";
+                          }
+                        }
+                        else{
+                          document.getElementById("convertResult").value="";
+                          document.getElementById("convertResult").placeholder="Çok Yüksek Değer Girdiniz...";
+                        }
+                        
+                      }
+                    })
+                  }
+                }
+                else{
+                  document.getElementById("convertText").value= "";
+                    document.getElementById("convertResult").value= "";
+                }
+                }}>
                   <option>Bir Döviz Seçin...</option>
                   {converter.map(
                       (data)=>{
@@ -247,28 +316,58 @@ const Content = () => {
                 </Form.Select>
               </Col>
               <Col xl={12} md={12} sm={12} xs={12} className="mt-3">
-              <Form.Control id="convertResult" type="text" placeholder="Sonuç..." onKeyUp={()=>{
+              <InputGroup hasValidation>
+                {/* dönüştürücünün alttaki textBox ı */}
+              <Form.Control id="convertResult" type="text" placeholder="Türk Lirası" onKeyUp={()=>{
+                let selector = document.getElementById("convertSelect").selectedIndex;
                 let currencyName = document.getElementById("convertSelect").value;
                 let text2 = document.getElementById("convertResult").value;
+                let textConvert = document.getElementById("convertText").value;
                 let a;
+                if(selector !== 0){
+                if(!isNaN(text2)){
+                if(text2.length <=22){
                 converter.forEach((data)=>{
                   if(data.Name===currencyName){
                     a=data.Selling;
                     a=a.replace(",",".");
                     text2= parseFloat(text2)/parseFloat(a);
                     text2=text2.toFixed(4);
-                    if(text2.search("e"===-1)){
+                    
+                    if(textConvert.search("e")===-1){
                       if(!isNaN(text2)){
-                        document.getElementById("convertText").value=text2;
+                        document.getElementById("convertText").value=text2+" "+currencyName;
                       }
                       else{
-                        document.getElementById("convertText").value="Lütfen Geçerli Bir Değer Giriniz...";
+                        document.getElementById("convertText").placeholder="Lütfen Geçerli Bir Değer Giriniz...";
                       }
                     }
-                    
+                    else{
+                      document.getElementById("convertText").value="";
+                      document.getElementById("convertText").placeholder="Çok Büyük Değer Girdiniz...";
+                    }
                   }
                 });
+              }
+              else{
+                document.getElementById("convertText").value="";
+                document.getElementById("convertText").placeholder="Çok Büyük Değer Girdiniz...";
+              }
+            }
+            else{
+              document.getElementById("convertText").value= "";
+                    document.getElementById("convertResult").value= "";
+            }
+          }
+          else{
+                    document.getElementById("convertText").value= "";
+                    document.getElementById("convertResult").value= "";
+                    document.getElementById("convertResult").placeholder="Lütfen bir döviz seçiniz...";
+          }
               }}/>
+              <InputGroup.Text id="inputGroupPrepend">₺</InputGroup.Text>
+              </InputGroup>
+              
               </Col>
             </Row>
           </Modal.Body>
