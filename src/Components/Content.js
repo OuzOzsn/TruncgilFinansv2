@@ -213,8 +213,7 @@ const Content = () => {
                       a = data.Selling;
                       a=a.replace(",",".");
                       currency =  parseFloat(currency) * parseFloat(a) ;
-                      currency=currency.toFixed(2);
-                      console.log(currency.length-3);
+                      currency=currency.toFixed(4);
                       if(currency.search("e")===-1){
                         if(!isNaN(currency)){
                           document.getElementById("convertResult").value=currency + " ₺";
@@ -248,7 +247,28 @@ const Content = () => {
                 </Form.Select>
               </Col>
               <Col xl={12} md={12} sm={12} xs={12} className="mt-3">
-              <Form.Control id="convertResult" type="text" placeholder="Sonuç..." disabled />
+              <Form.Control id="convertResult" type="text" placeholder="Sonuç..." onKeyUp={()=>{
+                let currencyName = document.getElementById("convertSelect").value;
+                let text2 = document.getElementById("convertResult").value;
+                let a;
+                converter.forEach((data)=>{
+                  if(data.Name===currencyName){
+                    a=data.Selling;
+                    a=a.replace(",",".");
+                    text2= parseFloat(text2)/parseFloat(a);
+                    text2=text2.toFixed(4);
+                    if(text2.search("e"===-1)){
+                      if(!isNaN(text2)){
+                        document.getElementById("convertText").value=text2;
+                      }
+                      else{
+                        document.getElementById("convertText").value="Lütfen Geçerli Bir Değer Giriniz...";
+                      }
+                    }
+                    
+                  }
+                });
+              }}/>
               </Col>
             </Row>
           </Modal.Body>
