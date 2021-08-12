@@ -206,7 +206,7 @@
         background: gray;
         transition: all .6s ease;
     }
-    .responsiveHeaderLinksDiv{
+    div.responsiveHeaderLinksDiv{
         display: flex;
         background: rgba(243, 245, 251,.5);
         position: absolute;
@@ -215,9 +215,13 @@
         left: 0;
         height: 1000px;
         width: 100%;
+        
     }
     .dark-mode .responsiveHeaderLinksDiv{
         background: rgba(84, 87, 95, 0.5);
+    }
+    .responsiveDarkButton{
+        padding: 50px 0 49px 0;
     }
     .responsiveHeaderLinksUl{
         display: flex;
@@ -229,6 +233,7 @@
         right: 0;
         padding: 0;
         transition: all .6s ease;
+        overflow: auto;
     }
     .responsiveHeaderLinksUl li, .responsiveHeaderLinksUl li:last-child{
         font-family: "Open Sans";
@@ -264,10 +269,29 @@
 @media screen and (max-width:655px) {
     .responsiveHeaderLinksUl{
         width: 80%;
+        
     }
 }
 @media screen and (max-width:380px) {
     .responsiveHeaderLinksUl{
         width: 100%;
+    }
+}
+@media screen and (max-height:480px) {
+    .responsiveHeaderLinksUl li a{
+        height: 50px;
+    }
+    .responsiveHeaderLinksUl li:last-child{
+        padding: 25px 0 24px 0;
+        height: 1px;
+    }
+}
+@media screen and (max-height:613px) {
+    .responsiveHeaderLinksUl li a{
+        height: 75px;
+    }
+    .responsiveHeaderLinksUl li:last-child{
+        padding: 25px 0 24px 0;
+        height: 1px;
     }
 }

@@ -11,7 +11,7 @@ const ResponsiveHeaderLinks = () => {
         <li><a href="/">Finans Haberleri</a></li>
         <li><a href="https://truncgil.com.tr/">Trunçgil</a></li>
         <li><a href="https://truncgil.com.tr/blog">Blog</a></li>
-        <li onClick={()=>{setDarkMode(!darkMode)}}>{darkMode?"Gündüz Modu":"Gece Modu"}</li>
+        <li className="responsiveDarkButton" onClick={()=>{setDarkMode(!darkMode)}}>{darkMode?"Gündüz Modu":"Gece Modu"}</li>
       </ul>
     </div>
   );
