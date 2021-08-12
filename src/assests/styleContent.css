@@ -44,7 +44,8 @@
     font-size: 17px;
 }
 .contentConverter{
-    width: 91px;
+    flex-wrap: nowrap !important;
+    width: 136px;
 }
 .tablesRow{
     width: 70%;
@@ -55,6 +56,11 @@
 .tablesRow table thead{
     color: #9b9b9b;
     font-size: 14px;
+}
+.dataTime{
+    background: orange;
+    border-radius: 1rem;
+    padding: 9px;
 }
 .tablesRow table tbody{
     font-weight: bold;

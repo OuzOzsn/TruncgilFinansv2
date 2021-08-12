@@ -26,18 +26,18 @@ const Content = () => {
   const [exchange, setExchange] = useState([]);
   const [converter, setConverter] = useState([]);  /* Sayfadaki döviz dönüştürücünün datası */
   const [show, setShow] = useState(false);
-  // const [jsonDate, setJsonDate] = useState(Date.now());
+  const [jsonDate, setJsonDate] = useState(Date.now());
 
-  // const date = new Date(jsonDate);
-  // const date2 = new Date();
-  // const timeMS = Math.floor(date2 - date);
-  // const timeMN = Math.floor(timeMS / 1000 / 60);
+  const date = new Date(jsonDate);
+  const date2 = new Date();
+  const timeMS = Math.floor(date2 - date);
+  const timeMN = Math.floor(timeMS / 1000 / 60);
 
   const popularRequest = () => {
     fetch("https://finans.truncgil.com/v3/today.json")
       .then((response) => response.json())
       .then((response) => {
-        // setJsonDate(response.Update_Date);
+        setJsonDate(response.Update_Date);
         delete response.Update_Date;
         let myExchangeResult = [];
         Object.keys(response).forEach((r) => {
@@ -174,12 +174,13 @@ const Content = () => {
         </div>
         <Col xl={12} md={12} sm={12} xs={12} className="marketsHeader mt-5">
           <h3>Piyasa Durumu</h3>
+          <h5 className="dataTime" >{timeMN === 0 ? "Az Önce" : `${timeMN} Dakika Önceki Veri`}</h5>
           <Button
             className="contentConverter"
             variant="primary"
             onClick={() => {setShow(true);}}
           >
-            Dönüştür
+            Döviz Dönüştür
           </Button>
         </Col>
         <Switch>
