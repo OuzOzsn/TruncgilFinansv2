@@ -46,14 +46,14 @@ export const ContentTop5Loser = () => {
           <th>Değişim</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="top5">
         {exchange
           .slice(0)
           .reverse()
           .map((data) => {
             if (data.Change.includes("-")) {
               return (
-                <tr key={data.Name}>
+                <tr  key={data.Name}>
                   <td className="tableMarketName">{data.Name}</td>
                   <td className="tableTexts">{data.Selling}</td>
                   <td

@@ -158,6 +158,10 @@ span.text-danger{
     height: 40%;
     width: 100%;
 }
+.dark-mode .top5{
+    color: white;
+    --bs-table-striped-color: white !important;
+}
 @media screen and (max-width:896px) {
     .Content{
         padding-top: 113px;
